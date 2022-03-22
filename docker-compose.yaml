@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  auth-server:
+    image: tonykivai/aquarose_user_management_server
+    container_name: aquarose-user-management-server
+    env_file: .env
+    # environment:
+    #   - MONGO_USERNAME=$MONGO_USERNAME
+
+    ports:
+    - "3001:3001"
+    restart: unless-stopped
+    working_dir: /home/node/app
+
+networks:
+  default:
+    external:
+     name: aquarose
